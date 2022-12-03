@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InformationParts } from '../../shared/common.constant';
+import { CommonEnum, InformationParts } from '../../shared/common.constant';
 
 @Component({
   selector: 'app-home-page',
@@ -15,11 +15,11 @@ export class HomePageComponent implements OnInit {
   }
 
   getWorkedYears() {
-    return new Date().getFullYear() - 2020;
+    return new Date().getFullYear() - CommonEnum.startWorkYear;
   }
 
   getAges() {
-    return new Date().getFullYear() - 1997;
+    return new Date().getFullYear() - CommonEnum.bornYear;
   }
 
   scrollTo(id: string) {
