@@ -12,4 +12,11 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getWorkedYears() {
+    return new Date().getFullYear() - 2020;
+  }
+
+  getAges() {
+    return new Date().getFullYear() - 1997;
+  }
 }

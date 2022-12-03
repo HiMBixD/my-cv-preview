@@ -6,8 +6,8 @@
 .header-sticky {
   position: sticky;
   top: 0;
-  // left: 0;
-  // right: 0;
+  background-color: #474E68;
+  z-index: 1;
 }
 
 .dropdown:hover .dropdown-menu {

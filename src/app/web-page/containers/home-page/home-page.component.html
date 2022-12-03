@@ -1,62 +1,116 @@
-<app-header></app-header>
-<div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-3">
-      <img src="assets/logo.jpg" alt="" class="w-100">
+<div class="page-wrapper">
+  <app-header></app-header>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-3">
+        <!-- <img src="assets/logo.jpg" alt="" class="w-100"> -->
+      </div>
     </div>
-  </div>
-  <div class="row d-flex justify-content-center">
-    <div class="col-9">
-      <div class="row mx-0">
-        <div class="col">
-          top 1 <br>
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
+
+    <!-- Personal Informations -->
+    <div class="row d-flex justify-content-center">
+      <div class="col-9">
+        <div class="row mx-0">
+          <div class="col">
+            <h1 class="text-white">Personal Informations:</h1>
+            <p>Hi, my name is "Nguyễn Đức Anh" or "Danh" if its easier for you.</p>
+            <p>I worked as an Developer for over {{getWorkedYears | memorizeFunction: null: null}} years.</p>
+            <p>And i would love for any new oportunities and challenges.</p>
+            <h4 class="text-white">Common</h4>
+            <p>
+              • Birth: 06/10/1997 ~ {{getAges| memorizeFunction: null: null}} years old
+            </p>
+            <p>
+              • Gender: Male
+            </p>
+            <p>
+              • Address: : Hanoi - Vietnam
+            </p>
+            <h4 class="text-white">Interests</h4>
+            <p>
+              I am interested in reading, playing game, watching movies, traveling,..
+            </p>
+            <p>
+              I desire to work in professional environment related to IT business
+            </p>
+            <p>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row d-flex justify-content-center">
-    <div class="col-9">
-      <div class="row mx-0">
-        <div class="col">
-          top 2 <br>
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-        </div>
-        <div class="col">
-          top 3<br>
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row d-flex justify-content-center">
-    <div class="col-9">
-      <div class="row mx-0">
-        <div class="col">
-          top 4 <br>
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-        </div>
-        <div class="col">
-          top 5<br>
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-        </div>
-        <div class="col">
-          top 6<br>
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
-          text texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext text
+    <!-- End: Personal Informations -->
+
+    <!-- Experiences -->
+    <div class="row d-flex justify-content-center">
+      <div class="col-9">
+        <div class="row mx-0">
+          <div class="col">
+            <h1 class="text-white">Experiences:</h1>
+            <h3 class="text-white">Main: Angular</h3>
+
+            <nz-timeline>
+              <nz-timeline-item>
+                <h5 class="text-white">Mar 2020 - FPT Informations System</h5>
+                <p>Start working as intern Angular - Java Spring Boot</p>
+              </nz-timeline-item>
+              <nz-timeline-item>
+                <h5 class="text-white">Aug 2021 - FPT Informations System</h5>
+                <p>Comeback to finish university</p>
+              </nz-timeline-item>
+              <nz-timeline-item>
+                <h5 class="text-white">Mar 2022 - SOTATEK., JSC</h5>
+                <p>Start working as Angular developer</p>
+              </nz-timeline-item>
+              <nz-timeline-item>
+                <h5 class="text-white">Now</h5>
+              </nz-timeline-item>
+              <!-- <nz-timeline-item nzColor="red" [nzDot]="dotTemplate">Technical testing 2015-09-01</nz-timeline-item> -->
+            </nz-timeline>
+            <!-- <ng-template #dotTemplate>
+              <span nz-icon nzType="plus-circle" nzTheme="fill"></span>
+            </ng-template> -->
+          </div>
         </div>
       </div>
     </div>
+    <!-- End: Experiences -->
+
+    <!-- Education -->
+    <div class="row d-flex justify-content-center">
+      <div class="col-9">
+        <div class="row mx-0">
+          <div class="col">
+            <h1 class="text-white">Education:</h1>
+            <h4 class="text-white">UNIVERSITY OF GREENWICH Alliance with FPT Education</h4>
+            <p>Jul 2018 - Dec 2021</p>
+            <p>• Major: Information Technology Branch.</p>
+            <p></p>
+            <p>• English: Upper-Intermediate (~ B2 / IELTS 6.0)</p>
+            <p>• Flexible work & communicate in English</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End: Education -->
+
+    <!-- Contact Me -->
+    <div class="row d-flex justify-content-center">
+      <div class="col-9">
+        <div class="row mx-0">
+          <div class="col">
+            <h1 class="text-white">Contact Me:</h1>
+            <p>
+              • Phone: 0982613181
+              • Email: ducanhtrs7@gmail.com
+            </p>
+            <!-- <ng-template #dotTemplate>
+              <span nz-icon nzType="plus-circle" nzTheme="fill"></span>
+            </ng-template> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End: Contact Me -->
   </div>
 </div>
