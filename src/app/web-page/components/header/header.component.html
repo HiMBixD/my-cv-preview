@@ -13,20 +13,8 @@
 
     <div class="nav-menu">
       <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="javascript:"><strong>Personal Info</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="javascript:"><strong>Experiences</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="javascript:"><strong>Education</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="javascript:"><strong>Contact</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="javascript:"><strong>Play ground</strong></a>
+        <li class="nav-item" *ngFor="let item of partMenu">
+          <a class="nav-link text-white" href="javascript:" (click)="scrollToItem(item.value)"><strong>{{item.name}}</strong></a>
         </li>
         <!-- <li class="nav-item dropdown middle-dropdown">
           <a class="nav-link text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><strong>...</strong></a>

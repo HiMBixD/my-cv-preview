@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InformationParts } from '../../shared/common.constant';
 
 @Component({
   selector: 'app-home-page',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  readonly partMenu = InformationParts;
 
   constructor() { }
 
@@ -18,5 +20,12 @@ export class HomePageComponent implements OnInit {
 
   getAges() {
     return new Date().getFullYear() - 1997;
+  }
+
+  scrollTo(id: string) {
+    const doc = document.getElementById(id);
+    if(doc){
+      window.scroll(0, doc.offsetTop - 100);
+    }
   }
 }

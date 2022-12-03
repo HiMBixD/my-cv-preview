@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-  <app-header></app-header>
+  <app-header (scrollTo)="scrollTo($event)"></app-header>
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-3">
@@ -12,7 +12,7 @@
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
-            <h1 class="text-white">Personal Informations:</h1>
+            <h1 class="text-white" [id]="partMenu.personalInformation">Personal Informations:</h1>
             <p>Hi, my name is "Nguyễn Đức Anh" or "Danh" if its easier for you.</p>
             <p>I worked as an Developer for over {{getWorkedYears | memorizeFunction: null: null}} years.</p>
             <p>And i would love for any new oportunities and challenges.</p>
@@ -42,7 +42,7 @@
     <!-- End: Personal Informations -->
     <hr>
     <!-- Experiences -->
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center" [id]="partMenu.experiences">
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
@@ -50,9 +50,9 @@
             <p class="text-white">Experienced Software Engineer with a demonstrated history of working in the computer software industry.</p>
             <p>Most Skilled in Angular, HTML, CSS, JavaScript</p>
             <p>Also can use some of NodeJS, Java Spring and SQL.</p>
+            <hr class="text-white">
             <nz-timeline>
               <nz-timeline-item>
-                <hr class="text-white">
                 <h5 class="text-white">Before 2020 - REELANCER/ PARTIME</h5>
                 <p>Develop small projects follow customer's requirements</p>
                 <p>Programming APIs as requirements</p>
@@ -112,7 +112,7 @@
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
-            <h1 class="text-white">Education:</h1>
+            <h1 class="text-white" [id]="partMenu.education">Education:</h1>
             <h4 class="text-white">UNIVERSITY OF GREENWICH Alliance with FPT Education</h4>
             <p>Jul 2018 - Dec 2021</p>
             <p>• Major: Information Technology Branch.</p>
@@ -130,10 +130,25 @@
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
-            <h1 class="text-white">Contact Me:</h1>
+            <h1 class="text-white" [id]="partMenu.contact">Contact Me:</h1>
             <p>
               • Phone: 0982613181
               • Email: ducanhtrs7@gmail.com
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End: Contact Me -->
+    <hr>
+    <!-- Contact Me -->
+    <div class="row d-flex justify-content-center">
+      <div class="col-9">
+        <div class="row mx-0">
+          <div class="col">
+            <h1 class="text-white" [id]="partMenu.playGround">Play Ground:</h1>
+            <p>
+              My old Pet Project
             </p>
           </div>
         </div>
