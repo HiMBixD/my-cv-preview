@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Author, DataFullObj, DetailUnit, Experiences, PersonalInformation, PlayGround } from '../models/common.model';
+import { TranslateService } from '@ngx-translate/core';
+import { BehaviorSubject } from 'rxjs';
+import { Author, DataFullObj, DetailUnit, Experiences, MockDatas, PersonalInformation, PlayGround } from '../models/common.model';
 
 @Injectable({
   providedIn: 'root'
@@ -143,18 +145,44 @@ export class CommonService {
     ]
   }
 
-  private readonly mockData: DataFullObj = {
-    author: this.author,
-    personalInformation: this.personalInformation,
-    experiences: this.experiences,
-    education: this.education,
-    contact: this.contact,
-    playGround: this.playGround,
+  private mockData: BehaviorSubject<DataFullObj>;
+
+  private readonly mockDataFinal: any = {
+    vi: {
+      author: this.author,
+      personalInformation: this.personalInformation,
+      experiences: this.experiences,
+      education: this.education,
+      contact: this.contact,
+      playGround: this.playGround,
+    },
+    en: {
+      author: this.author,
+      personalInformation: this.personalInformation,
+      experiences: this.experiences,
+      education: this.education,
+      contact: this.contact,
+      playGround: null,
+    },
+  }
+  browserLang;
+  constructor(private translate: TranslateService) {
+    this.browserLang = this.translate.getBrowserLang();
+    this.translate.setDefaultLang(this.browserLang === 'vi' ? 'vi' : 'en');
+    this.translate.use(this.browserLang === 'vi' ? 'vi' : 'en');
+    this.mockData = new BehaviorSubject<DataFullObj>(this.mockDataFinal[this.browserLang === 'vi' ? 'vi' : 'en']);
   }
 
-  constructor() { }
+  get currentLangGet() {
+    return this.translate.currentLang;
+  }
 
   get mockDatas(): DataFullObj {
-    return this.mockData;
+    return this.mockData.getValue();
+  }
+
+  changeData(lang: string) {
+    this.translate.use(lang);
+    this.mockData.next(this.mockDataFinal[lang]);
   }
 }

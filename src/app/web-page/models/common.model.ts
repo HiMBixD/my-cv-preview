@@ -45,3 +45,7 @@ export interface DataFullObj {
   contact: string[];
   playGround: PlayGround;
 }
+
+export interface MockDatas {
+  mockDatas: Record<string, DataFullObj>;
+}

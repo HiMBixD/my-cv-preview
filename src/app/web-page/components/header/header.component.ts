@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Author } from '../../models/common.model';
+import { CommonService } from '../../services/common.service';
 import { InformationParts } from '../../shared/common.constant';
 
 @Component({
@@ -33,20 +34,19 @@ export class HeaderComponent implements OnInit {
       value: InformationParts.playGround,
     }
   ];
-  constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang(this.translate.getBrowserLang() === 'vi' ? 'vi' : 'en');
-    this.translate.use(this.translate.getBrowserLang() === 'vi' ? 'vi' : 'en');
+  constructor(private common: CommonService) {
+
   }
 
   ngOnInit(): void {
   }
 
   get currentLangGet() {
-    return this.translate.currentLang;
+    return this.common.currentLangGet;
   }
 
   changeLang(code: string) {
-    this.translate.use(code);
+    this.common.changeData(code);
   }
   scrollToItem(id: string) {
     this.scrollTo.emit(id);
