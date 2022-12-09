@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Author, DataFullObj, DetailUnit, Experiences, PersonalInformation, PlayGround } from '../../models/common.model';
 import { CommonService } from '../../services/common.service';
 import { InformationParts } from '../../shared/common.constant';
@@ -17,7 +18,7 @@ export class HomePageComponent implements OnInit {
   education: DetailUnit;
   contact: string[];
   playGround: PlayGround;
-  constructor(private commonService: CommonService) {
+  constructor(private commonService: CommonService, private translate: TranslateService) {
     this.dataObj = this.commonService.mockDatas;
     this.author = this.commonService.mockDatas.author;
     this.personalInformation = this.commonService.mockDatas.personalInformation;
@@ -28,6 +29,9 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  get currentLangGet() {
+    return this.translate.currentLang;
   }
 
   getWorkedYears() {

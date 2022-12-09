@@ -6,24 +6,23 @@
         <!-- <img src="assets/logo.jpg" alt="" class="w-100"> -->
       </div>
     </div>
-
     <!-- Personal Informations -->
     <div class="row d-flex justify-content-center">
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
-            <h1 class="text-white" [id]="partMenu.personalInformation">Personal Informations:</h1>
-            <p>Hi, my name is "{{author.name}}" or "{{author.nickName}}" if its easier for you.</p>
-            <p>I worked as an {{author.job}} for over {{getWorkedYears | memorizeFunction: this: null}} years.</p>
+            <h1 class="text-white" [id]="partMenu.personalInformation">{{ 'Personal Informations' | translate}}:</h1>
+            <p>{{ 'Hi, my name is' | translate}} "{{author.name}}" {{ 'or' | translate}} "{{author.nickName}}" {{ 'if its easier for you.' | translate}}</p>
+            <p>{{ 'I worked as an' | translate}} {{author.job}} {{ 'for over' | translate}} {{getWorkedYears | memorizeFunction: this: null}} {{ 'years.' | translate}}</p>
             <p>{{author.selfDescriptions}}</p>
             <!-- Common -->
-            <h4 class="text-white">Common</h4>
-            <p>• Birth: {{getAges| memorizeFunction: this: null}} years old ~ {{personalInformation.common.dateOfBirth | date}}
+            <h4 class="text-white">{{ 'Common' | translate}}</h4>
+            <p>• {{ 'Birth' | translate}}: {{getAges| memorizeFunction: this: null}} {{ 'years old' | translate}} ~ {{personalInformation.common.dateOfBirth | date}}
             </p>
-            <p>• Gender: {{personalInformation.common.gender}}</p>
-            <p>• Address: {{personalInformation.common.address}}</p>
+            <p>• {{ 'Gender' | translate}}: {{personalInformation.common.gender}}</p>
+            <p>• {{ 'Address' | translate}}: {{personalInformation.common.address}}</p>
             <!-- Interests -->
-            <h4 class="text-white">Interests</h4>
+            <h4 class="text-white">{{ 'Interests' | translate}}</h4>
             <p *ngFor="let interest of personalInformation.interests">{{interest}}</p>
           </div>
         </div>
@@ -36,7 +35,7 @@
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
-            <h1 class="text-white">Experiences:</h1>
+            <h1 class="text-white">{{ 'Experiences' | translate}}:</h1>
             <p class="text-white">{{experiences.summary.label}}</p>
             <p *ngFor="let des of experiences.summary.descriptions">{{des}}</p>
             <hr class="text-white">
@@ -67,7 +66,7 @@
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
-            <h1 class="text-white" [id]="partMenu.education">Education:</h1>
+            <h1 class="text-white" [id]="partMenu.education">{{ 'Education' | translate}}:</h1>
             <h4 class="text-white">{{education.label}}</h4>
             <p *ngFor="let des of education.descriptions">{{des}}</p>
           </div>
@@ -81,7 +80,7 @@
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
-            <h1 class="text-white" [id]="partMenu.contact">Contact Me:</h1>
+            <h1 class="text-white" [id]="partMenu.contact">{{ 'Contact Me' | translate}}:</h1>
             <p *ngFor="let item of contact" [innerHTML]="item"></p>
           </div>
         </div>
@@ -95,7 +94,7 @@
       <div class="col-9">
         <div class="row mx-0">
           <div class="col">
-            <h1 class="text-white" [id]="partMenu.playGround">Play Ground:</h1>
+            <h1 class="text-white" [id]="partMenu.playGround">{{ 'Play Ground' | translate}}:</h1>
             <p>{{playGround.summaryDescriptions}}</p>
             <ng-container *ngFor="let project of playGround.projects; let i = index">
               <h5 class="text-white">{{project.label}}</h5>
@@ -111,7 +110,7 @@
   <br>
   <hr class="text-white">
   <br>
-  <div class="text-center">END</div>
+  <div class="text-center">{{ 'END' | translate}}</div>
   <br>
   <br>
 </div>
