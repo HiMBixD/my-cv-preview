@@ -1,0 +1,11 @@
+{
+    "HEADER": {
+        "MENUS": {
+            "Personal Info": "Personal Info",
+            "Experiences": "Experiences",
+            "Education": "Education",
+            "Contact": "Contact",
+            "Play ground": "Play ground"
+        }
+    }
+}

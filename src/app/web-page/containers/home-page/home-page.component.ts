@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonEnum, InformationParts } from '../../shared/common.constant';
+import { Author, DataFullObj, DetailUnit, Experiences, PersonalInformation, PlayGround } from '../../models/common.model';
+import { CommonService } from '../../services/common.service';
+import { InformationParts } from '../../shared/common.constant';
 
 @Component({
   selector: 'app-home-page',
@@ -8,18 +10,32 @@ import { CommonEnum, InformationParts } from '../../shared/common.constant';
 })
 export class HomePageComponent implements OnInit {
   readonly partMenu = InformationParts;
-
-  constructor() { }
+  dataObj: DataFullObj;
+  author: Author;
+  personalInformation: PersonalInformation;
+  experiences: Experiences;
+  education: DetailUnit;
+  contact: string[];
+  playGround: PlayGround;
+  constructor(private commonService: CommonService) {
+    this.dataObj = this.commonService.mockDatas;
+    this.author = this.commonService.mockDatas.author;
+    this.personalInformation = this.commonService.mockDatas.personalInformation;
+    this.experiences = this.commonService.mockDatas.experiences;
+    this.education = this.commonService.mockDatas.education;
+    this.contact = this.commonService.mockDatas.contact;
+    this.playGround = this.commonService.mockDatas.playGround;
+  }
 
   ngOnInit(): void {
   }
 
   getWorkedYears() {
-    return new Date().getFullYear() - CommonEnum.startWorkYear;
+    return new Date().getFullYear() - this.author.startWorkYear;
   }
 
   getAges() {
-    return new Date().getFullYear() - CommonEnum.bornYear;
+    return new Date().getFullYear() - this.author.bornYear;
   }
 
   scrollTo(id: string) {

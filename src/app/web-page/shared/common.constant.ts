@@ -6,7 +6,3 @@ export enum InformationParts {
   playGround = 'play-ground',
 }
 
-export enum CommonEnum {
-  startWorkYear = 2020,
-  bornYear = 1997,
-}

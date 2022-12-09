@@ -9,7 +9,7 @@ import { MemorizeFunctionPipe } from './shared/MemorizeFunction/memorize-functio
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { PlusCircleFill } from '@ant-design/icons-angular/icons';
-import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 const icons: IconDefinition[] = [ PlusCircleFill ]
 @NgModule({
@@ -19,8 +19,8 @@ const icons: IconDefinition[] = [ PlusCircleFill ]
     MemorizeFunctionPipe,
   ],
   imports: [
-    HttpClientModule,
     CommonModule,
+    TranslateModule,
     NzTimelineModule,
     NzIconModule.forRoot(icons),
     WebPageRoutingModule

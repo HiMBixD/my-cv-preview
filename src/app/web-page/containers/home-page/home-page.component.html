@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-  <app-header (scrollTo)="scrollTo($event)"></app-header>
+  <app-header (scrollTo)="scrollTo($event)" [author]="author"></app-header>
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-3">
@@ -13,28 +13,18 @@
         <div class="row mx-0">
           <div class="col">
             <h1 class="text-white" [id]="partMenu.personalInformation">Personal Informations:</h1>
-            <p>Hi, my name is "Nguyễn Đức Anh" or "Danh" if its easier for you.</p>
-            <p>I worked as an Developer for over {{getWorkedYears | memorizeFunction: null: null}} years.</p>
-            <p>And i would love for any new oportunities and challenges.</p>
+            <p>Hi, my name is "{{author.name}}" or "{{author.nickName}}" if its easier for you.</p>
+            <p>I worked as an {{author.job}} for over {{getWorkedYears | memorizeFunction: this: null}} years.</p>
+            <p>{{author.selfDescriptions}}</p>
+            <!-- Common -->
             <h4 class="text-white">Common</h4>
-            <p>
-              • Birth: {{getAges| memorizeFunction: null: null}} years old ~ {{'10/06/1997' | date}}
+            <p>• Birth: {{getAges| memorizeFunction: this: null}} years old ~ {{personalInformation.common.dateOfBirth | date}}
             </p>
-            <p>
-              • Gender: Male
-            </p>
-            <p>
-              • Address: : Hanoi - Vietnam
-            </p>
+            <p>• Gender: {{personalInformation.common.gender}}</p>
+            <p>• Address: {{personalInformation.common.address}}</p>
+            <!-- Interests -->
             <h4 class="text-white">Interests</h4>
-            <p>
-              I am interested in reading, playing game, watching movies, traveling,..
-            </p>
-            <p>
-              I desire to work in professional environment related to IT business
-            </p>
-            <p>
-            </p>
+            <p *ngFor="let interest of personalInformation.interests">{{interest}}</p>
           </div>
         </div>
       </div>
@@ -47,56 +37,21 @@
         <div class="row mx-0">
           <div class="col">
             <h1 class="text-white">Experiences:</h1>
-            <p class="text-white">Experienced Software Engineer with a demonstrated history of working in the computer software industry.</p>
-            <p>Most Skilled in Angular, HTML, CSS, JavaScript</p>
-            <p>Also can use some of NodeJS, Java Spring and SQL.</p>
+            <p class="text-white">{{experiences.summary.label}}</p>
+            <p *ngFor="let des of experiences.summary.descriptions">{{des}}</p>
             <hr class="text-white">
             <nz-timeline>
-              <nz-timeline-item>
-                <h5 class="text-white">Before 2020 - REELANCER/ PARTIME</h5>
-                <p>Develop small projects follow customer's requirements</p>
-                <p>Programming APIs as requirements</p>
-                <p>Writing tools, setting up server managements for different systems or games.</p>
-                <hr class="text-white">
+              <nz-timeline-item *ngFor="let timeLine of experiences.timeLines; let timeLineIndex = index">
+                <h5 class="text-white">{{timeLine.label}}</h5>
+                <p *ngFor="let des of timeLine.descriptions">{{des}}</p>
+                <!-- Projects -->
+                <ng-container *ngFor="let project of timeLine.projects; let i = index">
+                  <h6 class="text-white">{{project.label}}</h6>
+                  <p *ngFor="let des of project.descriptions">{{des}}</p>
+                  <hr *ngIf="i !== timeLine.projects.length - 1">
+                </ng-container>
+                <hr class="text-white" *ngIf="timeLineIndex !== experiences.timeLines.length - 1">
               </nz-timeline-item>
-              <nz-timeline-item>
-                <h5 class="text-white">Mar 2020 - FPT Informations System</h5>
-                <p>Start working as intern Angular - Java Spring Boot</p>
-                <h6 class="text-white">Project Description: Auction system</h6>
-                <p>This is the new bidding system for different projects that any personals, companies, organizations that want to win over and take over the project of Nation.</p>
-                <p>It also supports to online register, payment … and many ways for users to manage their assets, documents then evaluate their potential and status …</p>
-                <p>My position is Developer of User mangement Part. I created, developed and fixed features with both Front and Back-End, but mostly Front-End</p>
-                <p>I work with mailing, listing data, paginations, advance search/sort with large amount of data with supports from many library, framework as Nz zorro, NGRx store ...</p>
-                <p>Later on, i join in File storage management part which also work with uploading/downloading files with really large</p>
-                <p>Also involved in QA, UI/UX</p>
-                <hr class="text-white">
-              </nz-timeline-item>
-              <nz-timeline-item>
-                <h5 class="text-white">Aug 2021 - FPT Informations System</h5>
-                <p>Comeback to finish university</p>
-                <hr class="text-white">
-              </nz-timeline-item>
-              <nz-timeline-item>
-                <h5 class="text-white">Mar 2022 - SOTATEK., JSC</h5>
-                <p>Start working as Angular developer</p>
-                <h6 class="text-white">Project Description: Game</h6>
-                <p>This is a webapp game project, in which we develop an game engine making games for webapps in different platforms as android, ios and desktop.</p>
-                <p>My position is Developer by Angular and Firebase cloud funcions.</p>
-                <p>Follow the requirements, i created scenes with Konvajs for many game's frames, implements localizations and also Angular Universal for SSR</p>
-                <p>I also take on role of Tester for this Project</p>
-                <hr>
-                <h6 class="text-white">Project Description: Camper</h6>
-                <p>This is a maintaining project for a web similar to booking hotel web, in which is booking land prepared for going Camping.</p>
-                <p>My position is Developer by Angular and NodeJs with MySql.</p>
-                <p>In this Project, i have used NodeJs and Sql to create, alter system to search/sort with cordinate of map Land for Camping.</p>
-                <p>Learning methods for maintaining working Project and deploy it to Server by SSH command ... </p>
-                <p>I also the main dev to communicate directly to customer with English.</p>
-                <hr class="text-white">
-              </nz-timeline-item>
-              <nz-timeline-item>
-                <h5 class="text-white">Now</h5>
-              </nz-timeline-item>
-              <!-- <nz-timeline-item nzColor="red" [nzDot]="dotTemplate">Technical testing 2015-09-01</nz-timeline-item> -->
             </nz-timeline>
             <!-- <ng-template #dotTemplate>
               <span nz-icon nzType="plus-circle" nzTheme="fill"></span>
@@ -113,12 +68,8 @@
         <div class="row mx-0">
           <div class="col">
             <h1 class="text-white" [id]="partMenu.education">Education:</h1>
-            <h4 class="text-white">UNIVERSITY OF GREENWICH Alliance with FPT Education</h4>
-            <p>Jul 2018 - Dec 2021</p>
-            <p>• Major: Information Technology Branch.</p>
-            <p>• BACHELOR OF SCIENCE SECOND CLASS HONOURS (1st DIVISION) awarded by University of Greenwich</p>
-            <p>• English: Upper-Intermediate (~ B2 / IELTS 6.0)</p>
-            <p>• Flexible work & communicate in English</p>
+            <h4 class="text-white">{{education.label}}</h4>
+            <p *ngFor="let des of education.descriptions">{{des}}</p>
           </div>
         </div>
       </div>
@@ -131,11 +82,7 @@
         <div class="row mx-0">
           <div class="col">
             <h1 class="text-white" [id]="partMenu.contact">Contact Me:</h1>
-            <p>• Phone: 0982613181</p>
-            <p>• Email: ducanhtrs7@gmail.com</p>
-            <p>• Zalo: 0982613181</p>
-            <p>• <a href="https://www.fb.com/SHiImBiS.Sayonara">Facebook</a></p>
-            <p>• <a href="https://github.com/HiMBixD">Github</a></p>
+            <p *ngFor="let item of contact" [innerHTML]="item"></p>
           </div>
         </div>
       </div>
@@ -149,19 +96,12 @@
         <div class="row mx-0">
           <div class="col">
             <h1 class="text-white" [id]="partMenu.playGround">Play Ground:</h1>
-            <p>Here are some of my old Pet Projects practicing</p>
-            <h5 class="text-white">Music Platform:</h5>
-            <p>Created by using Angular with Java Spring Boot, PostgreSQL and MongoDB</p>
-            <p>An music platform that user can buy/sell music, music file uploaded to MongoDB</p>
-            <p>Front-end: <a href="https://bmwd-51455.firebaseapp.com/">Preview</a> And <a href="https://github.com/HiMBixD/MWD-FE">Git repositories</a></p>
-            <p>Back-end: <a href="https://mwd-be.herokuapp.com/">Preview</a> And <a href="https://github.com/HiMBixD/MWD">Git repositories</a></p>
-            <img src="assets/MWDpreview.png" alt="" class="w-100">
-            <hr>
-            <h5 class="text-white">My CV Preview:</h5>
-            <p>Created by using Angular with Firebase Storage</p>
-            <p>You basicly using it right now :)</p>
-            <p>Github: <a href="https://github.com/HiMBixD/my-cv-preview">Git repositories</a></p>
-          </div>
+            <p>{{playGround.summaryDescriptions}}</p>
+            <ng-container *ngFor="let project of playGround.projects; let i = index">
+              <h5 class="text-white">{{project.label}}</h5>
+              <p *ngFor="let des of project.descriptions" [innerHTML]="des"></p>
+              <hr *ngIf="i !== playGround.projects.length - 1">
+            </ng-container>
         </div>
       </div>
     </div>

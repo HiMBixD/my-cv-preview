@@ -2,19 +2,19 @@
   <div class="w-100 d-flex justify-content-between p-2 container">
     <div class="d-flex">
       <a routerLink="" class="logo">
-        <img src="assets/logo.png" alt="" class="logo">
+        <!-- <img src="assets/logo.png" alt="" class="logo"> -->
       </a>
       <span class="p-1 text-center">
         <!-- <strong>Nguyễn Đức Anh</strong> -->
-        <strong>Nguyễn Đức Anh</strong>
-        <p>Developer</p>
+        <strong>{{author?.name}}</strong>
+        <p>{{author?.job}}</p>
       </span>
     </div>
 
     <div class="nav-menu">
       <ul class="nav">
         <li class="nav-item" *ngFor="let item of partMenu">
-          <a class="nav-link text-white" href="javascript:" (click)="scrollToItem(item.value)"><strong>{{item.name}}</strong></a>
+          <a class="nav-link text-white" href="javascript:" (click)="scrollToItem(item.value)"><strong>{{item.name | translate }}</strong></a>
         </li>
         <!-- <li class="nav-item dropdown middle-dropdown">
           <a class="nav-link text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><strong>...</strong></a>
@@ -26,21 +26,26 @@
         </li> -->
       </ul>
     </div>
-    <!-- <div class="d-flex">
-      <div class="dropdown middle-dropdown mx-2">
-        <a class="text-white text-decoration-none small" href="javascript:"
+    <div class="d-flex">
+      <a href="javascript:" (click)="changeLang(currentLangGet === 'vi' ? 'en' : 'vi')">
+        <img src="assets/{{currentLangGet}}.png" alt="" class="logo-lang">
+      </a>
+      <!-- <div class="dropdown middle-dropdown mx-2">
+        <a class="text-white text-decoration-none" href="javascript:"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Social Media
+          Languages
         </a>
         <div class="dropdown-menu shadow border-0">
           <div class="d-flex justify-content-between px-3 py-2 small">
             <a class="text-black mx-2" href="javascript:">
-              Facebook
-              <i class="fa fa-search" aria-hidden="true"></i>
+              <img src="assets/vi.png" alt="" class="w-100">
+            </a>
+            <a class="text-black mx-2" href="javascript:">
+              English
             </a>
           </div>
         </div>
-      </div>
-    </div> -->
+      </div> -->
+    </div>
   </div>
 </nav>

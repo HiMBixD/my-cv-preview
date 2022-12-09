@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Author } from '../../models/common.model';
 import { InformationParts } from '../../shared/common.constant';
 
 @Component({
@@ -7,6 +9,7 @@ import { InformationParts } from '../../shared/common.constant';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() author: Author | undefined;
   @Output() scrollTo = new EventEmitter();
   readonly partMenu = [
     {
@@ -30,11 +33,21 @@ export class HeaderComponent implements OnInit {
       value: InformationParts.playGround,
     }
   ];
-  constructor() { }
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang(this.translate.getBrowserLang() === 'vi' ? 'vi' : 'en');
+    this.translate.use(this.translate.getBrowserLang() === 'vi' ? 'vi' : 'en');
+  }
 
   ngOnInit(): void {
   }
 
+  get currentLangGet() {
+    return this.translate.currentLang;
+  }
+
+  changeLang(code: string) {
+    this.translate.use(code);
+  }
   scrollToItem(id: string) {
     this.scrollTo.emit(id);
   }
