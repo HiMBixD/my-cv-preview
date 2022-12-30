@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLang(code: string) {
-    this.common.changeData(code);
+    // this.common.changeData(code);
   }
   scrollToItem(id: string) {
     this.scrollTo.emit(id);

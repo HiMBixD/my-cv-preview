@@ -168,9 +168,12 @@ export class CommonService {
   browserLang;
   constructor(private translate: TranslateService) {
     this.browserLang = this.translate.getBrowserLang();
-    this.translate.setDefaultLang(this.browserLang === 'vi' ? 'vi' : 'en');
-    this.translate.use(this.browserLang === 'vi' ? 'vi' : 'en');
-    this.mockData = new BehaviorSubject<DataFullObj>(this.mockDataFinal[this.browserLang === 'vi' ? 'vi' : 'en']);
+    // this.translate.setDefaultLang(this.browserLang === 'vi' ? 'vi' : 'en');
+    // this.translate.use(this.browserLang === 'vi' ? 'vi' : 'en');
+    // this.mockData = new BehaviorSubject<DataFullObj>(this.mockDataFinal[this.browserLang === 'vi' ? 'vi' : 'en']);
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+    this.mockData = new BehaviorSubject<DataFullObj>(this.mockDataFinal['en']);
   }
 
   get currentLangGet() {
