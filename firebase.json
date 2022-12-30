@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "public": "dist/my-cv-preview",
     "ignore": [
       "firebase.json",
       "**/.*",
