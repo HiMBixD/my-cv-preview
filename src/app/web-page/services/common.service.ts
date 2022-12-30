@@ -162,7 +162,7 @@ export class CommonService {
       experiences: this.experiences,
       education: this.education,
       contact: this.contact,
-      playGround: null,
+      playGround: this.playGround,
     },
   }
   browserLang;
