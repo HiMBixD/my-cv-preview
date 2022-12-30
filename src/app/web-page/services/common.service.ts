@@ -86,8 +86,8 @@ export class CommonService {
               `This is a maintaining project for a web similar to booking hotel web, in which is booking land prepared for going Camping.`,
               `My position is Developer using Angular and NodeJs with MySql.`,
               `In this Project, i have used NodeJs and Sql to create, alter system to search/sort with cordinate of map Land for Camping.`,
-              `Learning methods for maintaining working Project and deploy it to Server by SSH command ... `,
-              `I also the main dev to communicate directly to customer with English.`
+              `Learning methods for maintaining working Project and deploy it to Server by SSH commands ... `,
+              `I also the main dev to communicate directly with customer in English.`
             ],
           }
         ],
