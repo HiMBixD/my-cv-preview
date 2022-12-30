@@ -1,4 +1,4 @@
-<div class="page-wrapper">
+<div class="page-wrapper" *ngIf="dataObj">
   <app-header (scrollTo)="scrollTo($event)" [author]="author"></app-header>
   <div class="container">
     <div class="row d-flex justify-content-center">
@@ -95,7 +95,7 @@
         <div class="row mx-0">
           <div class="col">
             <h1 class="text-white" [id]="partMenu.playGround">{{ 'Play Ground' | translate}}:</h1>
-            <p>{{playGround?.summaryDescriptions}}</p>
+            <p>{{playGround.summaryDescriptions}}</p>
             <ng-container *ngFor="let project of playGround.projects; let i = index">
               <h5 class="text-white">{{project.label}}</h5>
               <p *ngFor="let des of project.descriptions" [innerHTML]="des"></p>
